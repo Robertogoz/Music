@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { Text } from 'react-native'
+import { AuthScreen } from './screens/AuthScreens/SignInScreen'
+
 export function App() {
-  return <Text>Hello World!</Text>
+  return <AuthScreen />
 }
