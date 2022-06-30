@@ -38,10 +38,18 @@ export function Form() {
         keyboardType="email-address"
         autoCapitalize="none"
         placeholder={'E-mail'}
+        placeholderTextColor="#000"
         error={errors.email}
       />
 
-      <Input name="password" control={control} secureTextEntry placeholder={'******'} error={errors.password} />
+      <Input
+        name="password"
+        control={control}
+        secureTextEntry
+        placeholder={'******'}
+        placeholderTextColor="#000"
+        error={errors.password}
+      />
 
       <Button activeOpacity={0.85} onPress={handleSubmit(handleUserSignIn)}>
         <ButtonText>Sign-in</ButtonText>
