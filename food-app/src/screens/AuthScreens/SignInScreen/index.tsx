@@ -4,7 +4,7 @@ import { Form } from '../../../components/form'
 
 import { Container } from './style'
 
-export function AuthScreen() {
+export function SignInScreen() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <Container>
