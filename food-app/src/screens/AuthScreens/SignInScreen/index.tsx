@@ -1,6 +1,6 @@
 import React from 'react'
 import { TouchableWithoutFeedback, Keyboard } from 'react-native'
-import { Form } from '../components/form'
+import { Form } from '../../../components/form'
 
 import { Container } from './style'
 

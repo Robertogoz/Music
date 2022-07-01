@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { Button, ButtonText, MainTitle, StyledInput as Input } from '../SignInScreen/style'
+import { Button, ButtonText, MainTitle, StyledInput as Input } from '../screens/AuthScreens/SignInScreen/style'
 
 type SignInFormSubmit = {
   email: string
@@ -38,7 +38,8 @@ export function Form() {
         keyboardType="email-address"
         autoCapitalize="none"
         placeholder={'E-mail'}
-        placeholderTextColor="#000"
+        placeholderTextColor="rgba(0,0,0,0.5)"
+        returnKeyType="next"
         error={errors.email}
       />
 
@@ -47,8 +48,9 @@ export function Form() {
         control={control}
         secureTextEntry
         placeholder={'******'}
-        placeholderTextColor="#000"
+        placeholderTextColor="rgba(0,0,0,0.5)"
         error={errors.password}
+        onSubmitEditing={handleSubmit(handleUserSignIn)}
       />
 
       <Button activeOpacity={0.85} onPress={handleSubmit(handleUserSignIn)}>
