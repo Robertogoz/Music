@@ -1,20 +1,21 @@
 import { Schema, connect, model } from 'mongoose'
 
-interface IUser {
+export interface IUser {
   name: string
   email: string
   password: string
-  created_at: Date
   avatar?: string
 }
 
-const userSchema = new Schema<IUser>({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  created_at: { type: Date, required: true, default: Date.now },
-  avatar: String,
-})
+const userSchema = new Schema<IUser>(
+  {
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    avatar: String,
+  },
+  { timestamps: true }
+)
 
 export const User = model<IUser>('User', userSchema)
 
