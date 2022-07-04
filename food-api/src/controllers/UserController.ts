@@ -12,6 +12,17 @@ export class UserController {
     res.json(await _userServices.fetch())
   }
 
+  async getOne(req: Request, res: Response) {
+    const { id } = req.params
+
+    try {
+      const user = await _userServices.fetchOne(id)
+      res.status(200).json(user)
+    } catch (err: any) {
+      res.status(404).json({ message: 'User not found' })
+    }
+  }
+
   async create(req: Request, res: Response) {
     const { name, email, password, avatar } = req.body
 

@@ -7,6 +7,14 @@ export class UserServices implements IUserServices {
     return await User.find()
   }
 
+  async fetchOne(id: string): Promise<any> {
+    if ((await this.idAlreadyExists(id)) === false) {
+      throw new Error('User not found')
+    }
+
+    return await User.findById(id)
+  }
+
   async create(name: string, email: string, password: string, avatar?: string): Promise<any> {
     if (await this.emailAlreadyExists(email)) {
       throw new Error('Email already registered')
