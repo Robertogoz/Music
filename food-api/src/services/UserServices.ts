@@ -2,6 +2,17 @@ import { User } from '../database/Schema'
 import IUserServices from '../interfaces/IUserServices'
 import { hash, compare } from 'bcryptjs'
 
+type UserType = {
+  _id: string
+  name: string
+  email: string
+  password: string
+  avatar: string
+  createdAt: Date
+  updatedAt: Date
+  __v: number
+}
+
 export class UserServices implements IUserServices {
   async fetch() {
     return await User.find()
@@ -27,11 +38,25 @@ export class UserServices implements IUserServices {
   }
 
   async delete(id: string): Promise<void> {
-    if (await !this.idAlreadyExists(id)) {
+    if ((await this.idAlreadyExists(id)) === false) {
       throw new Error('User not found')
     }
 
     await User.findByIdAndDelete(id)
+  }
+
+  async authenticate(email: string, password: string): Promise<any> {
+    if ((await this.emailAlreadyExists(email)) === false) {
+      throw new Error('incorrect email or password')
+    }
+
+    const user: UserType | null = await User.findOne({ email: email })
+
+    if ((await compare(password, user!.password)) === false) {
+      throw new Error('incorrect email or password')
+    }
+
+    return user
   }
 
   async emailAlreadyExists(email: string): Promise<boolean> {

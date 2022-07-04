@@ -52,4 +52,15 @@ export class UserController {
       }
     }
   }
+
+  async login(req: Request, res: Response) {
+    const { email, password } = req.body
+
+    try {
+      const user = await _userServices.authenticate(email, password)
+      res.status(200).json(user)
+    } catch (err: any) {
+      res.status(401).json(err.message)
+    }
+  }
 }
