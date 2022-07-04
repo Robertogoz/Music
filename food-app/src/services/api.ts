@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { API_IP } from '@env'
 
 const api = axios.create({
-  baseURL: 'http://localhost:3030',
+  baseURL: API_IP,
 })
 
 export default api
