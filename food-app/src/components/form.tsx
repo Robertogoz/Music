@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { AuthContext } from '../contexts/auth'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -16,6 +17,8 @@ const schema = yup.object({
 })
 
 export function Form() {
+  const { SignIn } = React.useContext(AuthContext)
+
   const {
     control,
     handleSubmit,
@@ -25,7 +28,7 @@ export function Form() {
   })
 
   function handleUserSignIn(data: SignInFormSubmit) {
-    console.log(data)
+    SignIn(data.email, data.password)
   }
 
   return (

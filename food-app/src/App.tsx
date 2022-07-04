@@ -1,7 +1,15 @@
 import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { AuthProvider } from './contexts/auth'
 
-import { AuthScreen } from './screens/AuthScreens/SignInScreen'
+import { Routes } from './routes'
 
 export function App() {
-  return <AuthScreen />
+  return (
+    <AuthProvider>
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
+    </AuthProvider>
+  )
 }
