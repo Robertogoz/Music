@@ -18,8 +18,24 @@ export class UserServices implements IUserServices {
     return user
   }
 
+  async delete(id: string): Promise<void> {
+    if (await !this.idAlreadyExists(id)) {
+      throw new Error('User not found')
+    }
+
+    await User.findByIdAndDelete(id)
+  }
+
   async emailAlreadyExists(email: string): Promise<boolean> {
     if (await User.exists({ email: email })) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  async idAlreadyExists(id: string): Promise<boolean> {
+    if (await User.exists({ _id: id })) {
       return true
     } else {
       return false

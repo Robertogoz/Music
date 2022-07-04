@@ -26,4 +26,19 @@ export class UserController {
       }
     }
   }
+
+  async delete(req: Request, res: Response) {
+    const { id } = req.params
+
+    try {
+      await _userServices.delete(id)
+      res.status(204).json({ message: 'User deleted successful' })
+    } catch (err: any) {
+      if (err.message === 'User not found') {
+        res.status(404).json({ message: err.message })
+      } else {
+        res.status(500).json({ message: err.message })
+      }
+    }
+  }
 }
