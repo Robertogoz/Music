@@ -1,9 +1,11 @@
 import { User } from '../database/Schema'
 import IUserServices from '../interfaces/IUserServices'
+import { sign } from 'jsonwebtoken'
 import { hash, compare } from 'bcryptjs'
+import { ObjectId } from 'mongoose'
 
 type UserType = {
-  _id: string
+  _id: ObjectId
   name: string
   email: string
   password: string
@@ -45,7 +47,7 @@ export class UserServices implements IUserServices {
     await User.findByIdAndDelete(id)
   }
 
-  async authenticate(email: string, password: string): Promise<any> {
+  async authenticate(email: string, password: string): Promise<object> {
     if ((await this.emailAlreadyExists(email)) === false) {
       throw new Error('incorrect email or password')
     }
@@ -56,7 +58,17 @@ export class UserServices implements IUserServices {
       throw new Error('incorrect email or password')
     }
 
-    return user
+    const token = sign({}, 'f3cff1a8-864f-4a4a-a199-90ca0081b847', {
+      subject: user!._id.toString(),
+      expiresIn: '10m',
+    })
+
+    const response = {
+      user,
+      token,
+    }
+
+    return response
   }
 
   async emailAlreadyExists(email: string): Promise<boolean> {

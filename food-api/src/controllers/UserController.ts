@@ -57,8 +57,8 @@ export class UserController {
     const { email, password } = req.body
 
     try {
-      const user = await _userServices.authenticate(email, password)
-      res.status(200).json(user)
+      const authenticatedUser = await _userServices.authenticate(email, password)
+      res.status(200).json(authenticatedUser)
     } catch (err: any) {
       res.status(401).json(err.message)
     }
