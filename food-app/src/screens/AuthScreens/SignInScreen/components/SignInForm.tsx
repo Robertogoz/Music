@@ -1,10 +1,12 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { AuthContext } from '../contexts/auth'
+import { AuthContext } from '../../../../contexts/auth'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { Button, ButtonText, MainTitle, StyledInput as Input } from '../screens/AuthScreens/SignInScreen/style'
+import { Button, ButtonText, MainTitle, StyledInput as Input } from '../style'
+import { useNavigation } from '@react-navigation/native'
+import { Alert } from '../../../../components/alert'
 
 type SignInFormSubmit = {
   email: string
@@ -16,8 +18,10 @@ const schema = yup.object({
   password: yup.string().min(6, 'A senha deve ter ao menos 6 dígitos').required('Informe sua senha'),
 })
 
-export function Form() {
+export function SignInForm() {
   const { SignIn } = React.useContext(AuthContext)
+  const navigation = useNavigation()
+  const [err, setErr] = React.useState<string>('')
 
   const {
     control,
@@ -27,13 +31,19 @@ export function Form() {
     resolver: yupResolver(schema),
   })
 
-  function handleUserSignIn(data: SignInFormSubmit) {
-    SignIn(data.email, data.password)
+  async function handleUserSignIn(data: SignInFormSubmit) {
+    try {
+      await SignIn(data.email, data.password)
+    } catch (err: any) {
+      setErr(err.message)
+    }
   }
 
   return (
     <>
       <MainTitle>Music App</MainTitle>
+
+      <Alert text={err}></Alert>
 
       <Input
         name="email"
@@ -60,8 +70,8 @@ export function Form() {
         <ButtonText>Sign-in</ButtonText>
       </Button>
 
-      <Button activeOpacity={0.85} onPress={() => console.log('Criar conta')}>
-        <ButtonText>Criar Conta</ButtonText>
+      <Button activeOpacity={0.85} onPress={() => navigation.navigate('SignUp')}>
+        <ButtonText>Sign-Up</ButtonText>
       </Button>
     </>
   )

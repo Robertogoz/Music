@@ -1,6 +1,6 @@
 import React from 'react'
 import { TouchableWithoutFeedback, Keyboard } from 'react-native'
-import { Form } from '../../../components/form'
+import { SignInForm } from './components/SignInForm'
 
 import { Container } from './style'
 
@@ -8,7 +8,7 @@ export function SignInScreen() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <Container>
-        <Form />
+        <SignInForm />
       </Container>
     </TouchableWithoutFeedback>
   )
