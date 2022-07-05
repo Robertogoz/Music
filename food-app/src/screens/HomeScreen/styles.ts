@@ -21,3 +21,8 @@ export const ButtonText = styled.Text`
   align-self: center;
   font-size: 15px;
 `
+
+export const MainTitle = styled.Text`
+  font-size: 48px;
+  margin-bottom: 90px;
+`

@@ -1,15 +1,14 @@
 import React from 'react'
 import { AuthContext } from '../../contexts/auth'
 
-import { Text } from 'react-native'
-import { Container, Button, ButtonText } from './styles'
+import { Container, Button, ButtonText, MainTitle } from './styles'
 
 export function HomeScreen() {
   const { SignOut } = React.useContext(AuthContext)
 
   return (
     <Container>
-      <Text>Home</Text>
+      <MainTitle>Home</MainTitle>
       <Button onPress={SignOut}>
         <ButtonText>Sign Out</ButtonText>
       </Button>
