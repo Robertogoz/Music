@@ -4,7 +4,7 @@ import { AuthContext } from '../../../../contexts/auth'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { Button, ButtonText, MainTitle, StyledInput as Input } from '../../SignInScreen/style'
+import { Button, ButtonText, MainTitle, StyledInput as Input } from '../../SignInScreen/styles'
 import { Alert } from '../../../../components/alert'
 import { useNavigation } from '@react-navigation/native'
 
@@ -99,7 +99,7 @@ export function SignUpForm() {
       </Button>
 
       <Button activeOpacity={0.85} onPress={() => navigation.goBack()}>
-        <ButtonText>Voltar</ButtonText>
+        <ButtonText>Back to Sign-In</ButtonText>
       </Button>
     </>
   )

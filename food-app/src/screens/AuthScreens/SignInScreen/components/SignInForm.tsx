@@ -18,8 +18,8 @@ type SignInFormSubmit = {
 }
 
 const schema = yup.object({
-  email: yup.string().email('E-mail inválido').required('Informe seu e-mail'),
-  password: yup.string().min(6, 'A senha deve ter ao menos 6 dígitos').required('Informe sua senha'),
+  email: yup.string().email('Invalid e-mail').required('E-mail is required'),
+  password: yup.string().min(6, 'Password must have at least 6 digits').required('Password is required'),
 })
 
 export function SignInForm() {
