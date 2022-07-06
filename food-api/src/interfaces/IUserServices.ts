@@ -6,6 +6,7 @@ export default interface IUserServices {
   create(name: string, email: string, password: string, avatar?: string): Promise<any>
   delete(id: string): Promise<void>
   authenticate(email: string, password: string): Promise<any>
+  changePassword(id: string, currentPassword: string, newPassword: string): Promise<any>
 
   emailAlreadyExists(email: string): Promise<boolean>
   idAlreadyExists(id: string): Promise<boolean>

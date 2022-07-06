@@ -63,4 +63,20 @@ export class UserController {
       res.status(401).json(err.message)
     }
   }
+
+  async changePassword(req: Request, res: Response) {
+    const { id } = req.params
+    const { currentPassword, newPassword } = req.body
+
+    try {
+      const response = await _userServices.changePassword(id, currentPassword, newPassword)
+      res.status(200).json(response)
+    } catch (err: any) {
+      if (err.message === 'User not found') {
+        res.status(404).json(err.message)
+      } else {
+        res.status(400).json(err.message)
+      }
+    }
+  }
 }

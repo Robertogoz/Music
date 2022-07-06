@@ -71,6 +71,24 @@ export class UserServices implements IUserServices {
     return response
   }
 
+  async changePassword(id: string, currentPassword: string, newPassword: string): Promise<any> {
+    if ((await this.idAlreadyExists(id)) === false) {
+      throw new Error('User not found')
+    }
+
+    const user: UserType | null = await User.findById(id)
+
+    const isValid: boolean = await compare(currentPassword, user!.password)
+
+    if (!isValid) {
+      throw new Error('Incorrect current password')
+    } else {
+      const newPasswordHash: string = await hash(newPassword, 8)
+      const res = await User.updateOne({ _id: id }, { password: newPasswordHash })
+      return res
+    }
+  }
+
   async emailAlreadyExists(email: string): Promise<boolean> {
     if (await User.exists({ email: email })) {
       return true
