@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { SignInForm } from './components/SignInForm'
 
-import { Container } from './style'
+import { Container } from './styles'
 
 export function SignInScreen() {
   return (
