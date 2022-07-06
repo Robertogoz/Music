@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { TouchableWithoutFeedback, Keyboard, ScrollView, KeyboardAvoidingView } from 'react-native'
+import { AuthContext } from '../../../contexts/auth'
+import { useNavigation } from '@react-navigation/native'
 
+import { TouchableWithoutFeedback, Keyboard, ScrollView, KeyboardAvoidingView } from 'react-native'
 import { Container, InputBlock, InputLabel, StyledInput as Input, CurrentPassword, Button, ButtonText } from './styles'
+import { Alert } from '../../../components/alert'
 
 type FormSubmit = {
   currentPassword: string
@@ -28,6 +31,9 @@ const schema = yup.object({
 })
 
 export function ChangePasswordScreen() {
+  const { ChangePassword, user } = useContext(AuthContext)
+  const [err, setErr] = React.useState<string>('')
+  const navigation = useNavigation()
   const {
     control,
     handleSubmit,
@@ -37,7 +43,12 @@ export function ChangePasswordScreen() {
   })
 
   async function handleUserChangePassword(data: FormSubmit) {
-    console.log(data)
+    try {
+      const response = await ChangePassword(user!._id, data.currentPassword, data.newPassword)
+      response ? navigation.goBack() : console.log('no response')
+    } catch (err: any) {
+      setErr(err.message)
+    }
   }
 
   return (
@@ -45,6 +56,8 @@ export function ChangePasswordScreen() {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <KeyboardAvoidingView behavior="position" enabled>
           <Container>
+            <Alert text={err} />
+
             <InputBlock>
               <InputLabel>Current Password</InputLabel>
               <Input

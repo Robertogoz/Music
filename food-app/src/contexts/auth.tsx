@@ -17,6 +17,7 @@ interface IAuthContextData {
   signed: boolean
   SignIn(email: string, password: string): Promise<void>
   SignUp(name: string, email: string, password: string): Promise<AxiosResponse | undefined>
+  ChangePassword(id: string, currentPassword: string, newPassword: string): Promise<AxiosResponse | undefined>
   SignOut(): void
   user: User | null
 }
@@ -56,8 +57,24 @@ export function AuthProvider({ children }: UserContextProps) {
     }
   }
 
+  async function ChangePassword(
+    id: string,
+    currentPassword: string,
+    newPassword: string
+  ): Promise<AxiosResponse | undefined> {
+    try {
+      const res = await api.put(`/changePassword/${id}`, {
+        currentPassword,
+        newPassword,
+      })
+      return res
+    } catch (err: any) {
+      throw new Error(err.response.data)
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ signed: Boolean(user), SignIn, SignUp, SignOut, user }}>
+    <AuthContext.Provider value={{ signed: Boolean(user), SignIn, SignUp, SignOut, ChangePassword, user }}>
       {children}
     </AuthContext.Provider>
   )
