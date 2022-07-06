@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import { Input } from '../../../components/input'
 
 export const Container = styled.View`
-  margin-top: 80px;
+  margin-top: 40px;
   flex: 1;
   align-items: center;
   justify-content: center;
