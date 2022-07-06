@@ -4,11 +4,11 @@ import { AuthContext } from '../../../../contexts/auth'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { RootStackAuthRoutes } from '../../../../routes/AuthRoutes'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 import { Button, ButtonText, MainTitle, StyledInput as Input } from '../style'
-import { useNavigation } from '@react-navigation/native'
 import { Alert } from '../../../../components/alert'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 type SignInScreenProps = NativeStackNavigationProp<RootStackAuthRoutes, 'SignIn'>
 
