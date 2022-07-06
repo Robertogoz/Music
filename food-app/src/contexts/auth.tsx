@@ -1,4 +1,4 @@
-import { AxiosError, AxiosResponse } from 'axios'
+import { AxiosResponse } from 'axios'
 import React, { createContext, ReactNode } from 'react'
 import api from '../services/api'
 
@@ -6,18 +6,25 @@ type UserContextProps = {
   children: ReactNode
 }
 
+type User = {
+  _id: string
+  name: string
+  email: string
+  avatar?: string
+}
+
 interface IAuthContextData {
   signed: boolean
   SignIn(email: string, password: string): Promise<void>
   SignUp(name: string, email: string, password: string): Promise<AxiosResponse | undefined>
   SignOut(): void
-  user: object | null
+  user: User | null
 }
 
 export const AuthContext = createContext<IAuthContextData>({} as IAuthContextData)
 
 export function AuthProvider({ children }: UserContextProps) {
-  const [user, setUser] = React.useState<object | null>(null)
+  const [user, setUser] = React.useState<User | null>(null)
 
   function SignOut(): void {
     setUser(null)
@@ -32,7 +39,6 @@ export function AuthProvider({ children }: UserContextProps) {
       setUser(res.data.user)
       api.defaults.headers.common = { Authorization: `Bearer ${res.data.token}` }
     } catch (err: any) {
-      console.log(err.response.data)
       throw new Error(err.response.data)
     }
   }
