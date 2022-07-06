@@ -37,6 +37,7 @@ export function ChangePasswordScreen() {
   const {
     control,
     handleSubmit,
+    //setFocus,
     formState: { errors },
   } = useForm<FormSubmit>({
     resolver: yupResolver(schema),
@@ -68,6 +69,7 @@ export function ChangePasswordScreen() {
                 placeholderTextColor="rgba(0,0,0,0.5)"
                 error={errors.currentPassword}
                 returnKeyType="next"
+                //onSubmitEditing={() => setFocus('newPassword')}
               />
               <CurrentPassword />
             </InputBlock>
@@ -94,6 +96,7 @@ export function ChangePasswordScreen() {
                 placeholder={'******'}
                 placeholderTextColor="rgba(0,0,0,0.5)"
                 error={errors.newPasswordConfirm}
+                onSubmitEditing={handleSubmit(handleUserChangePassword)}
               />
             </InputBlock>
 
