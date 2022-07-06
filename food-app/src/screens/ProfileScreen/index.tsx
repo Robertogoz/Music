@@ -34,7 +34,7 @@ export function ProfileScreen() {
   return (
     <Container>
       <Header>
-        <IconDiv activeOpacity={0.65} onPress={handleAvatar}>
+        <IconDiv activeOpacity={0.5} onPress={handleAvatar}>
           {user?.avatar === undefined && <Icon source={require('../../assets/default_icon.png')} />}
           <Icon source={{ uri: user?.avatar }} />
         </IconDiv>
@@ -43,10 +43,10 @@ export function ProfileScreen() {
         <TextM>Email: {user?.email}</TextM>
       </Header>
 
-      <Button onPress={() => navigation.navigate('ChangePassword')} activeOpacity={0.85}>
+      <Button onPress={() => navigation.navigate('ChangePassword')} activeOpacity={0.2}>
         <TextM>Change Password</TextM>
       </Button>
-      <Button onPress={SignOut} activeOpacity={0.85}>
+      <Button onPress={SignOut} activeOpacity={0.2}>
         <TextM>Sign Out</TextM>
       </Button>
     </Container>
