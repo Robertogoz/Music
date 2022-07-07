@@ -4,7 +4,7 @@ import { AuthContext } from '../../../../contexts/auth'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { Button, ButtonText, MainTitle, StyledInput as Input } from '../../SignInScreen/styles'
+import { Button, ButtonText, MainTitle, StyledInput as Input } from '../../styles/styles'
 import { Alert } from '../../../../components/alert'
 import { useNavigation } from '@react-navigation/native'
 

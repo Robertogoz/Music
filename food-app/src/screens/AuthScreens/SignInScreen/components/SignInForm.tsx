@@ -7,7 +7,7 @@ import { RootStackAuthRoutes } from '../../../../routes/AuthRoutes'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
-import { Button, ButtonText, MainTitle, StyledInput as Input } from '../styles'
+import { Button, ButtonText, MainTitle, StyledInput as Input } from '../../styles/styles'
 import { Alert } from '../../../../components/alert'
 
 type SignInScreenProps = NativeStackNavigationProp<RootStackAuthRoutes, 'SignIn'>
