@@ -1,6 +1,7 @@
-import { Schema, connect, model } from 'mongoose'
+import { Schema, connect, model, ObjectId } from 'mongoose'
 
 export interface IUser {
+  _id: ObjectId
   name: string
   email: string
   password: string
