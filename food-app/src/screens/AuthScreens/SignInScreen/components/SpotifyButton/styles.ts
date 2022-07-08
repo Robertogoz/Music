@@ -20,4 +20,5 @@ export const SpotifyIcon = styled.Image`
 export const ButtonText = styled.Text`
   color: white;
   font-size: 15px;
+  font-weight: bold;
 `
