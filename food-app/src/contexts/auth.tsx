@@ -11,6 +11,7 @@ type User = {
   name: string
   email: string
   avatar?: string
+  spotify_token: string | undefined
 }
 
 interface IAuthContextData {
@@ -20,6 +21,7 @@ interface IAuthContextData {
   ChangePassword(id: string, currentPassword: string, newPassword: string): Promise<AxiosResponse | undefined>
   SignOut(): void
   user: User | null
+  setUser: (value: React.SetStateAction<User | null>) => void
 }
 
 export const AuthContext = createContext<IAuthContextData>({} as IAuthContextData)
@@ -74,7 +76,7 @@ export function AuthProvider({ children }: UserContextProps) {
   }
 
   return (
-    <AuthContext.Provider value={{ signed: Boolean(user), SignIn, SignUp, SignOut, ChangePassword, user }}>
+    <AuthContext.Provider value={{ signed: Boolean(user), SignIn, SignUp, SignOut, ChangePassword, user, setUser }}>
       {children}
     </AuthContext.Provider>
   )
