@@ -2,7 +2,6 @@ import * as React from 'react'
 import { ResponseType, useAuthRequest } from 'expo-auth-session'
 import { Button, ButtonText, SpotifyIcon } from './styles'
 import { AuthContext } from '../../../../../contexts/auth'
-import axios from 'axios'
 import { View } from 'react-native'
 
 const discovery = {
@@ -11,7 +10,7 @@ const discovery = {
 }
 
 export function SpotifyButton() {
-  const { setUser } = React.useContext(AuthContext)
+  const { HandleSpotifyLogin } = React.useContext(AuthContext)
   const [request, response, promptAsync] = useAuthRequest(
     {
       responseType: ResponseType.Token,
@@ -32,32 +31,17 @@ export function SpotifyButton() {
     discovery
   )
 
-  React.useEffect(() => {
+  async function handleAuth() {
     if (response?.type === 'success') {
       const { access_token } = response.params
 
-      axios
-        .get('https://api.spotify.com/v1/me', {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + access_token,
-          },
-        })
-        .then((res) => {
-          const spotifyUser = {
-            _id: res.data.id,
-            name: res.data.display_name,
-            email: res.data.email,
-            avatar: res.data.images[0].url,
-            spotify_token: access_token,
-          }
-
-          setUser(spotifyUser)
-        })
-        .catch((err) => console.log(err.response.data))
+      await HandleSpotifyLogin(access_token)
     }
-  }, [response])
+  }
+
+  React.useEffect(() => {
+    handleAuth()
+  }, [handleAuth])
 
   return (
     <Button
