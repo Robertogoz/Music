@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { RootStackAuthRoutes } from '../../../../routes/AuthRoutes'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { SpotifyButton } from './SpotifyButton'
 
 import { Button, ButtonText, MainTitle, StyledInput as Input } from '../../styles/styles'
 import { Alert } from '../../../../components/alert'
@@ -77,6 +78,8 @@ export function SignInForm() {
       <Button activeOpacity={0.85} onPress={() => navigation.navigate('SignUp')}>
         <ButtonText>Sign-Up</ButtonText>
       </Button>
+
+      <SpotifyButton />
     </>
   )
 }

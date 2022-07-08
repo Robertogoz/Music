@@ -2,9 +2,8 @@
   "expo": {
     "name": "food-app",
     "slug": "food-app",
+    "scheme": "food-app",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"]
   }
 }
