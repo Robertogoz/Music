@@ -49,7 +49,7 @@ export function SpotifyButton() {
             _id: res.data.id,
             name: res.data.display_name,
             email: res.data.email,
-            avatar: res.data.images.url,
+            avatar: res.data.images[0].url,
             spotify_token: access_token,
           }
 
