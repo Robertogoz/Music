@@ -72,7 +72,7 @@ export function SignInForm() {
       />
 
       <Button activeOpacity={0.85} onPress={handleSubmit(handleUserSignIn)}>
-        <ButtonText>Sign-in</ButtonText>
+        <ButtonText>Sign-In</ButtonText>
       </Button>
 
       <Button activeOpacity={0.85} onPress={() => navigation.navigate('SignUp')}>
