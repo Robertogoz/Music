@@ -24,6 +24,7 @@ export function SpotifyButton() {
         'streaming',
         'user-read-email',
         'user-read-private',
+        'playlist-read-private',
       ],
       usePKCE: false,
       redirectUri: 'exp://localhost:19000',
