@@ -1,9 +1,13 @@
 import styled from 'styled-components/native'
 
 export const Container = styled.View`
-  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
+`
+export const MainTitle = styled.Text`
+  font-size: 48px;
+  margin: 80px 0 40px;
 `
 
 export const Button = styled.TouchableOpacity`
@@ -20,9 +24,4 @@ export const ButtonText = styled.Text`
   color: white;
   align-self: center;
   font-size: 15px;
-`
-
-export const MainTitle = styled.Text`
-  font-size: 48px;
-  margin-bottom: 90px;
 `

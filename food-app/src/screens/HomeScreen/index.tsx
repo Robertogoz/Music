@@ -1,17 +1,13 @@
 import React from 'react'
-import { AuthContext } from '../../contexts/auth'
 
-import { Container, Button, ButtonText, MainTitle } from './styles'
+import { Container, MainTitle } from './styles'
+import { PlaylistBar } from './components/PlaylistBar'
 
 export function HomeScreen() {
-  const { SignOut } = React.useContext(AuthContext)
-
   return (
     <Container>
       <MainTitle>Home</MainTitle>
-      <Button onPress={SignOut}>
-        <ButtonText>Sign Out</ButtonText>
-      </Button>
+      <PlaylistBar />
     </Container>
   )
 }
