@@ -10,7 +10,7 @@ export const PlaylistLabel = styled.Text`
 export const PlaylistBlock = styled(FlatList as new () => FlatList<Playlist>)`
   border: 1px solid black;
   padding: 2px;
-  width: 280px;
+  width: 70%;
 `
 
 export const PlaylistView = styled.View`
