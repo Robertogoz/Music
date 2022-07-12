@@ -1,44 +1,16 @@
 import React, { useContext } from 'react'
 import { useQuery } from 'react-query'
-import axios from 'axios'
 
-import { AuthContext } from '../../../../contexts/auth'
+import { SpotifyContext, Playlist, Playlists } from '../../../../contexts/spotify'
 import { PlaylistLabel, PlaylistView, PlaylistBlock, PlaylistImage } from './styles'
 import { ListRenderItem } from 'react-native'
 
-export type Playlist = {
-  id: string
-  name: string
-  images: [
-    {
-      url: string
-    }
-  ]
-}
-
-type Playlists = {
-  items: [Playlist]
-}
-
 export function PlaylistBar() {
-  const { user } = useContext(AuthContext)
+  const { getAllPlaylists } = useContext(SpotifyContext)
 
   const { data } = useQuery<Playlists>(
     'playlists',
-    async () => {
-      try {
-        const res = await axios.get('https://api.spotify.com/v1/me/playlists?limit=10&offset=0', {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + user?.spotify_token,
-          },
-        })
-        return res.data
-      } catch (err) {
-        console.log(err)
-      }
-    },
+    getAllPlaylists,
     { staleTime: 1000 * 60 } // 1 minute
   )
 
