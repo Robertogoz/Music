@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { QueryClientProvider } from 'react-query'
+import { StatusBar } from 'expo-status-bar'
 
 import { AuthProvider } from './contexts/auth'
 import { SpotifyProvider } from './contexts/spotify'
@@ -14,6 +15,7 @@ export function App() {
         <SpotifyProvider>
           <NavigationContainer>
             <Routes />
+            <StatusBar style="dark" />
           </NavigationContainer>
         </SpotifyProvider>
       </AuthProvider>
