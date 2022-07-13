@@ -7,6 +7,8 @@ type SpotifyContextProps = {
   children: ReactNode
 }
 
+// getAllPlaylists types
+
 export type Playlist = {
   id: string
   name: string
@@ -20,6 +22,8 @@ export type Playlist = {
 export type Playlists = {
   items: [Playlist]
 }
+
+// getPlaylistData types
 
 export interface Image {
   height: number
@@ -63,6 +67,8 @@ export interface PlaylistData {
   name: string
   tracks: Tracks
 }
+
+// Context Interface
 
 interface ISpotifyContextData {
   getAllPlaylists(): Promise<Playlists>
