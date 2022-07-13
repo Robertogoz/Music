@@ -1,15 +1,17 @@
 import React from 'react'
-import { TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native'
 import { SignInForm } from './components/SignInForm'
 
 import { Container } from '../styles/styles'
 
 export function SignInScreen() {
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <Container>
-        <SignInForm />
-      </Container>
-    </TouchableWithoutFeedback>
+    <ScrollView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <Container>
+          <SignInForm />
+        </Container>
+      </TouchableWithoutFeedback>
+    </ScrollView>
   )
 }
