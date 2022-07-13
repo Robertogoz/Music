@@ -1,5 +1,5 @@
-import { FlatList } from 'react-native'
 import styled from 'styled-components/native'
+import { FlatList } from 'react-native'
 import { Playlist } from '../../../../contexts/spotify'
 
 export const PlaylistLabel = styled.Text`
@@ -14,7 +14,7 @@ export const PlaylistBlock = styled(FlatList as new (FlatListProps: any) => Flat
   width: 90%;
 `
 
-export const PlaylistView = styled.View`
+export const PlaylistView = styled.TouchableOpacity`
   padding: 4px;
 `
 
