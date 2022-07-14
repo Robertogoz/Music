@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import { useQuery } from 'react-query'
 
-import { SpotifyContext, Playlist, Playlists } from '../../../../contexts/spotify'
+import { SpotifyContext } from '../../../../contexts/spotify'
 import { PlaylistLabel, PlaylistView, PlaylistBlock, PlaylistImage } from './styles'
 import { ListRenderItem } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackAppRoutes } from '../../../../routes/AppRoutes'
+import { Playlist, Playlists } from '../../../../types/PlaylistType'
 
 type PlaylistScreenProps = NativeStackNavigationProp<RootStackAppRoutes, 'Main'>
 

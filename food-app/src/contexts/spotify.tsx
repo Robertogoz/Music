@@ -3,73 +3,12 @@ import axios from 'axios'
 
 import { AuthContext } from './auth'
 import { SearchType } from '../types/searchTypes'
+import { Playlists } from '../types/PlaylistType'
+import { PlaylistData } from '../types/PlaylistDataType'
 
 type SpotifyContextProps = {
   children: ReactNode
 }
-
-// getAllPlaylists types
-
-export type Playlist = {
-  id: string
-  name: string
-  images: [
-    {
-      url: string
-    }
-  ]
-}
-
-export type Playlists = {
-  items: [Playlist]
-}
-
-// getPlaylistData types
-
-export interface Image {
-  height: number
-  url: string
-  width: number
-}
-
-export interface Image2 {
-  height: number
-  url: string
-  width: number
-}
-
-export interface Album {
-  images: Image2[]
-  name: string
-}
-
-export interface Artist {
-  id: string
-  name: string
-}
-
-export interface Track {
-  album: Album
-  artists: Artist[]
-  id: string
-  name: string
-}
-
-export interface Item {
-  track: Track
-}
-
-export interface Tracks {
-  items: Item[]
-}
-
-export interface PlaylistData {
-  images: Image[]
-  name: string
-  tracks: Tracks
-}
-
-// Context Interface
 
 interface ISpotifyContextData {
   getAllPlaylists(): Promise<Playlists>
