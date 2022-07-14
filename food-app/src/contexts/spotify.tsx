@@ -2,6 +2,7 @@ import React, { createContext, ReactNode } from 'react'
 import axios from 'axios'
 
 import { AuthContext } from './auth'
+import { SearchType } from '../types/searchTypes'
 
 type SpotifyContextProps = {
   children: ReactNode
@@ -73,6 +74,7 @@ export interface PlaylistData {
 interface ISpotifyContextData {
   getAllPlaylists(): Promise<Playlists>
   getPlaylistData(id: string): Promise<PlaylistData>
+  Search(text: string): Promise<SearchType>
 }
 
 export const SpotifyContext = createContext<ISpotifyContextData>({} as ISpotifyContextData)
@@ -110,5 +112,25 @@ export function SpotifyProvider({ children }: SpotifyContextProps) {
     }
   }
 
-  return <SpotifyContext.Provider value={{ getAllPlaylists, getPlaylistData }}>{children}</SpotifyContext.Provider>
+  async function Search(text: string): Promise<SearchType> {
+    try {
+      const res = await axios.get(
+        `https://api.spotify.com/v1/search?q=${text}&type=track&market=BR&limit=10&offset=0`,
+        {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + user?.spotify_token,
+          },
+        }
+      )
+      return res.data
+    } catch (err: any) {
+      throw new Error(err)
+    }
+  }
+
+  return (
+    <SpotifyContext.Provider value={{ getAllPlaylists, getPlaylistData, Search }}>{children}</SpotifyContext.Provider>
+  )
 }
