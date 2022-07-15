@@ -13,14 +13,14 @@ export const RecommendationsTitle = styled.Text`
   margin-bottom: 10px;
 `
 
-export const StyledFlatList = styled(FlatList as new (Props: FlatListProps<Item>) => FlatList<Item>)`
-  height: 60%;
+export const Flat = styled(FlatList as new (Props: FlatListProps<Item>) => FlatList<Item>)`
+  max-height: 85%;
 `
 
 export const PlaylistList = styled.View`
   width: 80%;
   flex-direction: row;
-  margin-top: 10px;
+  margin: 10px 0;
   padding: 0 10px;
 `
 

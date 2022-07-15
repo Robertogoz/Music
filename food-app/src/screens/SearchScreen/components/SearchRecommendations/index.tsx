@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
+import { Platform } from 'react-native'
 
 import { useQuery } from 'react-query'
 import { SpotifyContext } from '../../../../contexts/spotify'
-import { Recommendations, Playlists } from '../../../../types/getRecommendationsType'
+import { Recommendations } from '../../../../types/getRecommendationsType'
 import {
   SearchRecommendationBox,
   PlaylistList,
@@ -11,7 +12,7 @@ import {
   RecommendationsTitle,
   PlaylistDescription,
   PlaylistData,
-  StyledFlatList as FlatList,
+  Flat,
 } from './styles'
 
 export function SearchRecommendations() {
@@ -34,7 +35,16 @@ export function SearchRecommendations() {
     <SearchRecommendationBox>
       <RecommendationsTitle>{data?.message} - Today Recommendations</RecommendationsTitle>
 
-      <FlatList data={data?.playlists.items} keyExtractor={(item) => item.id} renderItem={RenderItem} />
+      {Platform.OS === 'android' ? (
+        <Flat data={data?.playlists.items} keyExtractor={(item) => item.id} renderItem={RenderItem} />
+      ) : (
+        <Flat
+          style={{ maxHeight: 620 }}
+          data={data?.playlists.items}
+          keyExtractor={(item) => item.id}
+          renderItem={RenderItem}
+        />
+      )}
     </SearchRecommendationBox>
   )
 }
