@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 import { FlatList } from 'react-native'
-import { Playlist } from '../../../../contexts/spotify'
+import { Playlist } from '../../../../types/PlaylistType'
 
 export const PlaylistLabel = styled.Text`
   font-size: 12px;

@@ -4,6 +4,7 @@ export const Container = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;
 `
 export const MainTitle = styled.Text`
   font-size: 48px;
