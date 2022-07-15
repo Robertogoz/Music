@@ -8,7 +8,7 @@ import { SearchType } from '../../../../types/searchTypes'
 import { Input, ModalStyle, CenteredModal, ExitButton, TrackImage, TrackList, TrackName } from './styles'
 
 export function SearchInput() {
-  const [text, setText] = useState<string>('')
+  const [text, setText] = useState<string>('search')
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const { Search } = useContext(SpotifyContext)
   const { data, refetch } = useQuery<SearchType>('search', async () => Search(text))
