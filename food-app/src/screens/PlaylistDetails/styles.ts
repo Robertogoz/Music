@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 import { FlatList, FlatListProps } from 'react-native'
-import { Item } from '../../contexts/spotify'
+import { Item } from '../../types/PlaylistDataType'
 
 export const Container = styled.View`
   display: flex;
@@ -21,7 +21,7 @@ export const Title = styled.Text`
 `
 
 export const TrackBlock = styled(FlatList as new (Props: FlatListProps<Item>) => FlatList<Item>)`
-  height: 60%;
+  height: 50%;
 `
 
 export const TrackList = styled.View`
