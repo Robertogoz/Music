@@ -15,7 +15,7 @@ export function SearchInput() {
 
   const RenderItem = ({ item }: any) => (
     <TrackList>
-      <TrackImage source={{ uri: item?.album.images[2].url }} />
+      <TrackImage source={{ uri: item?.album.images[1].url }} />
       <TrackName>
         {item?.name} - {item?.album.artists[0].name}
       </TrackName>
@@ -46,7 +46,6 @@ export function SearchInput() {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          // console.log(data)
           setModalVisible(!modalVisible)
         }}
       >
@@ -62,5 +61,3 @@ export function SearchInput() {
     </>
   )
 }
-
-// onChangeText={(text) => setText(text)}
