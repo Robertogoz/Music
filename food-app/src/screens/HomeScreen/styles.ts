@@ -6,10 +6,6 @@ export const Container = styled.View`
   justify-content: center;
   margin-top: 40px;
 `
-export const MainTitle = styled.Text`
-  font-size: 48px;
-  margin: 80px 0 40px;
-`
 
 export const Button = styled.TouchableOpacity`
   width: 90%;
