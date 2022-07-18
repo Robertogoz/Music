@@ -1,5 +1,5 @@
 import { User, IUser } from '../database/Schema'
-import IUserServices, { authenticatedUser } from '../interfaces/IUserServices'
+import { IUserServices, authenticatedUser } from '../interfaces/IUserServices'
 import { sign } from 'jsonwebtoken'
 import { hash, compare } from 'bcryptjs'
 

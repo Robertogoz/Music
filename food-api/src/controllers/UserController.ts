@@ -1,22 +1,22 @@
 import { Request, Response } from 'express'
-import { UserServices } from '../services/UserServices'
-
-const _userServices = new UserServices()
+import { IUserServices } from '../interfaces/IUserServices'
 
 export class UserController {
+  constructor(private userServices: IUserServices) {}
+
   async hello(req: Request, res: Response) {
     res.send('Hello World!')
   }
 
   async getAll(req: Request, res: Response) {
-    res.json(await _userServices.fetch())
+    res.json(await this.userServices.fetch())
   }
 
   async getOne(req: Request, res: Response) {
     const { id } = req.params
 
     try {
-      const user = await _userServices.fetchOne(id)
+      const user = await this.userServices.fetchOne(id)
       res.status(200).json(user)
     } catch (err: any) {
       res.status(404).json({ message: 'User not found' })
@@ -27,7 +27,7 @@ export class UserController {
     const { name, email, password, avatar } = req.body
 
     try {
-      const user = await _userServices.create(name, email, password, avatar)
+      const user = await this.userServices.create(name, email, password, avatar)
       res.status(201).json(user)
     } catch (err: any) {
       if (err.message === 'User already registered') {
@@ -42,7 +42,7 @@ export class UserController {
     const { id } = req.params
 
     try {
-      await _userServices.delete(id)
+      await this.userServices.delete(id)
       res.status(204).json({ message: 'User deleted successful' })
     } catch (err: any) {
       if (err.message === 'User not found') {
@@ -57,7 +57,7 @@ export class UserController {
     const { email, password } = req.body
 
     try {
-      const authenticatedUser = await _userServices.authenticate(email, password)
+      const authenticatedUser = await this.userServices.authenticate(email, password)
       res.status(200).json(authenticatedUser)
     } catch (err: any) {
       res.status(401).json(err.message)
@@ -69,7 +69,7 @@ export class UserController {
     const { currentPassword, newPassword } = req.body
 
     try {
-      const response = await _userServices.changePassword(id, currentPassword, newPassword)
+      const response = await this.userServices.changePassword(id, currentPassword, newPassword)
       res.status(200).json(response)
     } catch (err: any) {
       if (err.message === 'User not found') {

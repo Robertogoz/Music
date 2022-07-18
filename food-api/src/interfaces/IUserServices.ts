@@ -5,7 +5,7 @@ export type authenticatedUser = {
   token: string
 }
 
-export default interface IUserServices {
+export interface IUserServices {
   fetch(): Promise<IUser[]>
   fetchOne(id: string): Promise<any>
   create(name: string, email: string, password: string, avatar?: string): Promise<IUser>
