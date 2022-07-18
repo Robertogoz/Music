@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import { FlatList, Modal, Text, View } from 'react-native'
+import { FlatList, Modal, Platform, Text, View } from 'react-native'
 import { useQuery } from 'react-query'
 
 import { SpotifyContext } from '../../../../contexts/spotify'
@@ -25,12 +25,21 @@ export function SearchInput() {
   return (
     <>
       <View style={{ flexDirection: 'row' }}>
-        <Ionicons
-          style={{ position: 'absolute', zIndex: 1, left: 10, bottom: 10 }}
-          name="search"
-          size={18}
-          color="grey"
-        />
+        {Platform.OS === 'android' ? (
+          <Ionicons
+            style={{ position: 'absolute', zIndex: 1, left: 10, bottom: 15 }}
+            name="search"
+            size={18}
+            color="grey"
+          />
+        ) : (
+          <Ionicons
+            style={{ position: 'absolute', zIndex: 1, left: 10, bottom: 10 }}
+            name="search"
+            size={18}
+            color="grey"
+          />
+        )}
         <Input
           placeholder="Search"
           placeholderTextColor={'rgba(0,0,0,0.5)'}
