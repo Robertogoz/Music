@@ -11,13 +11,21 @@ export const Container = styled.View`
 export const PlaylistImage = styled.Image`
   height: 180px;
   width: 180px;
-  margin: 20px 0;
+  margin: 20px 0 5px;
 `
 
 export const Title = styled.Text`
   font-size: 28px;
   font-weight: 600;
+  margin-bottom: 5px;
+`
+
+export const Description = styled.Text`
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.7);
   margin-bottom: 20px;
+  text-align: center;
+  width: 60%;
 `
 
 export const TrackBlock = styled(FlatList as new (Props: FlatListProps<Item>) => FlatList<Item>)`

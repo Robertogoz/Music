@@ -39,4 +39,5 @@ export interface PlaylistData {
   images: Image[]
   name: string
   tracks: Tracks
+  description: string
 }

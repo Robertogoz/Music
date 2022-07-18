@@ -4,7 +4,7 @@ import { Platform } from 'react-native'
 import { useQuery } from 'react-query'
 import { SpotifyContext } from '../../contexts/spotify'
 
-import { Container, Title, PlaylistImage, TrackList, TrackImage, TrackName, TrackBlock } from './styles'
+import { Container, Title, PlaylistImage, TrackList, TrackImage, TrackName, TrackBlock, Description } from './styles'
 
 type PlaylistDetailsProps = {
   route: {
@@ -20,12 +20,6 @@ export function PlaylistDetails({ route }: PlaylistDetailsProps) {
 
   const { data } = useQuery('playlistData', async () => await getPlaylistData(id), { refetchOnWindowFocus: true }) // 1 minute
 
-  const Playlist = {
-    playlistImage: data?.images[0].url,
-    playlistName: data?.name,
-    tracks: data?.tracks,
-  }
-
   const RenderItem = ({ item }: any) => (
     <TrackList>
       <TrackImage source={{ uri: item?.track.album.images[0].url }} />
@@ -37,8 +31,9 @@ export function PlaylistDetails({ route }: PlaylistDetailsProps) {
 
   return (
     <Container>
-      <PlaylistImage source={{ uri: Playlist.playlistImage }} />
-      <Title>{Playlist.playlistName}</Title>
+      <PlaylistImage source={{ uri: data?.images[0].url }} />
+      <Title>{data?.name}</Title>
+      <Description>{data?.description}</Description>
 
       {Platform.OS === 'android' ? (
         <TrackBlock data={data?.tracks.items} keyExtractor={(item) => item.track.id} renderItem={RenderItem} />
