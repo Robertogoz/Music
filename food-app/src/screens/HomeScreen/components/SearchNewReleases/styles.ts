@@ -12,9 +12,9 @@ export const Title = styled.Text`
 `
 
 export const NewReleasesList = styled.View`
-  width: 80%;
+  width: 85%;
   flex-direction: row;
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 0 10px;
 `
 

@@ -14,14 +14,19 @@ export const RecommendationsTitle = styled.Text`
 `
 
 export const Flat = styled(FlatList as new (Props: FlatListProps<Item>) => FlatList<Item>)`
-  max-height: 85%;
+  max-height: 80%;
 `
 
 export const PlaylistList = styled.View`
-  width: 80%;
+  width: 85%;
   flex-direction: row;
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 0 10px;
+`
+
+export const PlaylistButton = styled.TouchableOpacity`
+  width: 100%;
+  flex-direction: row;
 `
 
 export const PlaylistImage = styled.Image`
