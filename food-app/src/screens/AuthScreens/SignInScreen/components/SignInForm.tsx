@@ -3,15 +3,11 @@ import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../../../contexts/auth'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { RootStackAuthRoutes } from '../../../../routes/AuthRoutes'
 import { useNavigation } from '@react-navigation/native'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { SpotifyButton } from './SpotifyButton'
 
 import { Button, ButtonText, MainTitle, StyledInput as Input } from '../../styles/styles'
 import { Alert } from '../../../../components/alert'
-
-type SignInScreenProps = NativeStackNavigationProp<RootStackAuthRoutes, 'SignIn'>
 
 type SignInFormSubmit = {
   email: string
@@ -25,7 +21,7 @@ const schema = yup.object({
 
 export function SignInForm() {
   const { SignIn } = React.useContext(AuthContext)
-  const navigation = useNavigation<SignInScreenProps>()
+  const navigation = useNavigation()
   const [err, setErr] = React.useState<string>('')
 
   const {

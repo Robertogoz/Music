@@ -5,7 +5,6 @@ import { Platform } from 'react-native'
 
 import { useQuery } from 'react-query'
 import { SpotifyContext } from '../../../../contexts/spotify'
-import { RootStackAppRoutes } from '../../../../routes/AppRoutes'
 import { Recommendations } from '../../../../types/getRecommendationsType'
 import {
   SearchRecommendationBox,
@@ -19,10 +18,8 @@ import {
   Flat,
 } from './styles'
 
-type PlaylistScreenProps = NativeStackNavigationProp<RootStackAppRoutes, 'Main'>
-
 export function SearchRecommendations() {
-  const navigation = useNavigation<PlaylistScreenProps>()
+  const navigation = useNavigation()
   const { getRecommendations } = useContext(SpotifyContext)
   const { data } = useQuery<Recommendations>('recommendations', async () => await getRecommendations(), {
     staleTime: 1000 * 86400, // 1 day

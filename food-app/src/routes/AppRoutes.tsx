@@ -5,15 +5,7 @@ import { MainRoutes } from './MainRoutes'
 import { ChangePasswordScreen } from '../screens/AuthScreens/ChangePasswordScreen'
 import { PlaylistDetails } from '../screens/PlaylistDetails'
 
-export type RootStackAppRoutes = {
-  Main: undefined
-  ChangePassword: undefined
-  PlaylistDetails: {
-    id: string
-  }
-}
-
-const Stack = createNativeStackNavigator<RootStackAppRoutes>()
+const Stack = createNativeStackNavigator()
 
 export function AppRoutes() {
   return (
