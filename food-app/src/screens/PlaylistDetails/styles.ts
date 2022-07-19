@@ -15,7 +15,7 @@ export const PlaylistImage = styled.Image`
 `
 
 export const Title = styled.Text`
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
   text-align: center;
