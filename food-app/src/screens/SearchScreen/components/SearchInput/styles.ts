@@ -34,7 +34,7 @@ export const ExitButton = styled.TouchableOpacity`
 `
 
 export const TrackList = styled.View`
-  width: 100%;
+  width: 90%;
   flex-direction: row;
   margin-top: 10px;
   padding: 0 10px;
