@@ -18,7 +18,7 @@ export const Flat = styled(FlatList as new (Props: FlatListProps<Item>) => FlatL
 `
 
 export const PlaylistList = styled.View`
-  width: 85%;
+  width: 95%;
   flex-direction: row;
   margin: 5px 0;
   padding: 0 10px;
@@ -46,4 +46,5 @@ export const PlaylistTitle = styled.Text`
 export const PlaylistDescription = styled.Text`
   font-size: 10px;
   color: rgba(0, 0, 0, 0.7);
+  width: 80%;
 `

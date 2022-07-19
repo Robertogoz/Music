@@ -18,6 +18,8 @@ export const Title = styled.Text`
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 5px;
+  text-align: center;
+  padding: 0 5px;
 `
 
 export const Description = styled.Text`

@@ -22,7 +22,7 @@ export const ModalStyle = styled.View`
   background-color: white;
   border: 1px solid black;
   border-radius: 20px;
-  padding: 10px;
+  padding: 10px 5px;
   align-items: center;
 `
 
@@ -34,7 +34,7 @@ export const ExitButton = styled.TouchableOpacity`
 `
 
 export const TrackList = styled.View`
-  width: 80%;
+  width: 100%;
   flex-direction: row;
   margin-top: 10px;
   padding: 0 10px;
@@ -49,4 +49,5 @@ export const TrackName = styled.Text`
   font-size: 12px;
   align-self: center;
   padding-left: 10px;
+  width: 90%;
 `
