@@ -3,9 +3,9 @@
 ## Project Stack
 
 - Lang → TypeScript in Mobile and API
-- Docker → 3 containers(API, Mobile, DB) → us docker-compose
+- Docker → 3 containers(API, Mobile, DB) → use docker-compose(not implemented yet)
 - Expo Bare workflow
-- Testes unitários - Jest/Testing Library
+- Tests - Jest/Testing Library(not implemented yet)
 
 - Following a Conventional Commit Pattern - [https://medium.com/linkapi-solutions/conventional-commits-pattern-3778d1a1e657](https://medium.com/linkapi-solutions/conventional-commits-pattern-3778d1a1e657)
 - Create a good documentation(English and Portuguese), maybe using Swagger ui to backend(not necessary because its a simple API)
@@ -17,8 +17,8 @@ Techs:
   - Styled Components
   - React Hook Form - Validations by Yup
   - Context API
-  - Natives React Hooks - useMemo/useCallback and etc..
-  - Spotify oAuth2 auth
+  - Natives React Hooks
+  - Spotify oAuth2
 - API - Nodejs
   - Express
   - JWT
@@ -29,22 +29,23 @@ Techs:
 
 - [x] App with Authentication using context API- oAuth2
 - [x] Stack and Main navigation
-- [ ] Optimized to Android and IOS
-- [ ] Clean Code
-- [ ] Focus on performance(using Hooks in the right way) - maybe need to use React Query
+- [x] Optimized to Android and IOS
+- [x] Clean Code
+- [x] Search Screen
+- [x] Implements React Query to cache data
+- [x] Responsive app
+- [ ] Users Interaction
 - [ ] Create a playlist on Spotify with your and another user favorite music’s
-- [ ] Responsive app
 - [ ] Tests (Test Library and/or Jest)
-- [ ] Avatar management system
 
 ### Maybe?
 
 - [ ] Add animations to app
 - [ ] WebSocket chat
 - [ ] Spotify player in navigation bar
-- [ ] Feed to users post something
 - [ ] Dark theme
 - [ ] Follow system, to follow another user and your Spotify account
+- [ ] Avatar management system
 
 ## About app
 
