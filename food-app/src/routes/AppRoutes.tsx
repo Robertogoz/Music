@@ -11,8 +11,16 @@ export function AppRoutes() {
   return (
     <Stack.Navigator initialRouteName="Main">
       <Stack.Screen name="Main" component={MainRoutes} options={{ headerShown: false }} />
-      <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} options={{ title: 'Change Password' }} />
-      <Stack.Screen name="PlaylistDetails" component={PlaylistDetails} options={{ title: 'Playlist Details' }} />
+      <Stack.Screen
+        name="ChangePassword"
+        component={ChangePasswordScreen}
+        options={{ title: 'Change Password', headerTitleAlign: 'center' }}
+      />
+      <Stack.Screen
+        name="PlaylistDetails"
+        component={PlaylistDetails}
+        options={{ title: 'Playlist Details', headerTitleAlign: 'center' }}
+      />
     </Stack.Navigator>
   )
 }
