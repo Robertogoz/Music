@@ -1,4 +1,4 @@
-package com.foodapp;
+package com.robertogoz.foodapp;
 
 import android.os.Build;
 import android.os.Bundle;

@@ -4,6 +4,11 @@
     "slug": "food-app",
     "scheme": "food-app",
     "version": "1.0.0",
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": ["**/*"],
+    "plugins": ["@react-native-firebase/app"],
+    "android": {
+      "package": "com.robertogoz.foodapp",
+      "googleServicesFile": "./google-services.json"
+    }
   }
 }

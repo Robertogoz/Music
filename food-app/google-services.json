@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1062008253517",
+    "project_id": "musicapp-2d707",
+    "storage_bucket": "musicapp-2d707.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062008253517:android:c8781fb27032aab9d38004",
+        "android_client_info": {
+          "package_name": "com.robertogoz.foodapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062008253517-n3t4fqk4826jl1hkvnoo5lbicjc27164.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_jzerWXnABPm0rVGedI8doZxzwowlhA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062008253517-n3t4fqk4826jl1hkvnoo5lbicjc27164.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-package com.foodapp.newarchitecture.modules;
+package com.robertogoz.foodapp.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
