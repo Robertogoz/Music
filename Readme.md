@@ -63,6 +63,8 @@ Without Docker
 
 - Add a .env file with `API_IP=http:/yourIp:3030` or change on `./food-app/src/services/api.ts`
 
+- Go to ./food-app/src/screens/AuthScreens/SignInScreen/components/SpotifyButton and change RedirectURI to 'exp://localhost:19000'
+
 - Open 2 terminals:
   - One in ./food-app and run `expo start —tunnel`
   - Two in ./food-api and run `yarn dev`
