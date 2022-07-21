@@ -1,5 +1,4 @@
 import { useNavigation } from '@react-navigation/native'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React, { useContext } from 'react'
 import { Platform } from 'react-native'
 
@@ -46,7 +45,8 @@ export function SearchRecommendations() {
 
   return (
     <SearchRecommendationBox>
-      <RecommendationsTitle>{data?.message} - Today Recommendations</RecommendationsTitle>
+      <RecommendationsTitle>Today Recommendations:</RecommendationsTitle>
+      <RecommendationsTitle>{data?.message}</RecommendationsTitle>
 
       {Platform.OS === 'android' ? (
         <Flat data={data?.playlists.items} keyExtractor={(item) => item.id} renderItem={RenderItem} />

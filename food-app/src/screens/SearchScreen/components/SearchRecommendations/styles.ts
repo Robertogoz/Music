@@ -3,18 +3,19 @@ import { FlatList, FlatListProps } from 'react-native'
 import { Item } from '../../../../types/getRecommendationsType'
 
 export const SearchRecommendationBox = styled.View`
-  margin-top: 30px;
+  margin-top: 15px;
   align-items: center;
 `
 
 export const RecommendationsTitle = styled.Text`
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 10px;
+  padding: 0 5px;
 `
 
 export const Flat = styled(FlatList as new (Props: FlatListProps<Item>) => FlatList<Item>)`
-  max-height: 80%;
+  margin-top: 10px;
+  max-height: 450px;
 `
 
 export const PlaylistList = styled.View`

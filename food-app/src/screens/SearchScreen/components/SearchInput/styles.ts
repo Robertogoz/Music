@@ -1,11 +1,10 @@
 import styled from 'styled-components/native'
 
 export const Input = styled.TextInput`
-  margin-top: 20px;
   border: 1px solid grey;
   padding: 10px 30px;
   border-radius: 20px;
-  width: 320px;
+  width: 90%;
   background-color: #ebebeb;
 `
 
