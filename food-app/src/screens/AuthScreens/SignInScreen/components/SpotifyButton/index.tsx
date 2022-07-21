@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ResponseType, useAuthRequest } from 'expo-auth-session'
+import { makeRedirectUri, ResponseType, useAuthRequest } from 'expo-auth-session'
 import { Button, ButtonText, SpotifyIcon } from './styles'
 import { AuthContext } from '../../../../../contexts/auth'
 import { View } from 'react-native'
@@ -27,7 +27,7 @@ export function SpotifyButton() {
         'playlist-read-private',
       ],
       usePKCE: false,
-      redirectUri: 'exp://localhost:19000',
+      redirectUri: makeRedirectUri({ native: 'food-app://' }),
     },
     discovery
   )
