@@ -17,16 +17,16 @@ export function PlaylistBar() {
     { staleTime: 1000 * 60 } // 1 minute
   )
 
-  const RenderItem: ListRenderItem<Playlist> = ({ item }) => (
+  const RenderItem = ({ id, images }: Playlist) => (
     <PlaylistView
       activeOpacity={0.5}
       onPress={() =>
         navigation.navigate('PlaylistDetails', {
-          id: item?.id,
+          id,
         })
       }
     >
-      <PlaylistImage source={{ uri: item?.images[0].url }} />
+      <PlaylistImage source={{ uri: images[0].url }} />
     </PlaylistView>
   )
 
@@ -36,8 +36,8 @@ export function PlaylistBar() {
       <PlaylistBlock
         horizontal={true}
         data={data?.items}
-        keyExtractor={(item: Playlist) => item.id}
-        renderItem={RenderItem}
+        keyExtractor={(item) => item.id}
+        renderItem={(item) => <RenderItem id={item.item.id} images={item.item.images} />}
       />
     </>
   )

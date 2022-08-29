@@ -1,6 +1,15 @@
 import styled from 'styled-components/native'
-import { FlatList } from 'react-native'
-import { Playlist } from '../../../../types/PlaylistType'
+import { FlatList, FlatListProps } from 'react-native'
+
+interface Playlist {
+  id: string
+  name?: string
+  images: [
+    {
+      url: string
+    }
+  ]
+}
 
 export const PlaylistLabel = styled.Text`
   font-size: 12px;
@@ -8,7 +17,7 @@ export const PlaylistLabel = styled.Text`
   margin-top: 10px;
 `
 
-export const PlaylistBlock = styled(FlatList as new (FlatListProps: any) => FlatList<Playlist>)`
+export const PlaylistBlock = styled(FlatList as new (props: FlatListProps<Playlist>) => FlatList<Playlist>)`
   border: 1px solid black;
   padding: 2px;
   width: 101%;
